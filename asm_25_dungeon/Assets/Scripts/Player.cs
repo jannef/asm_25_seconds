@@ -195,7 +195,8 @@ public class Player : MonoBehaviour
 
     private bool IsPassable(Tile tile)
     {
-        return tile != null && CheckTileForEvent(tile) == Tile.MovementEvent.Pass;
+        Tile.MovementEvent ev = CheckTileForEvent(tile);
+        return tile != null && (ev == Tile.MovementEvent.Pass || ev == Tile.MovementEvent.Item);
     }
     private Tile.MovementEvent CheckTileForEvent(Tile tile)
     {
