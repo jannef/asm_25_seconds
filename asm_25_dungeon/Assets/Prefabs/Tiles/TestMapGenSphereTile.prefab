@@ -22,7 +22,7 @@ GameObject:
   - component: {fileID: 33734966287914034}
   - component: {fileID: 65808210677785498}
   - component: {fileID: 23722813540177382}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -38,7 +38,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4132863399256630}
   - component: {fileID: 114451100289347236}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: TestMapGenSphereTile
   m_TagString: Untagged
   m_Icon: {fileID: 0}

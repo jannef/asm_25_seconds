@@ -26,7 +26,7 @@ GameObject:
   - component: {fileID: 114166587370549658}
   - component: {fileID: 114616181421564604}
   - component: {fileID: 114175955268110518}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: TestPlayer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -98,6 +98,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _swipeTreshold: 0
   _controller: {fileID: 0}
+  _controlled: {fileID: 114175955268110518}
 --- !u!114 &114166587370549658
 MonoBehaviour:
   m_ObjectHideFlags: 1

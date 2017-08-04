@@ -20,7 +20,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4814351554476802}
   - component: {fileID: 114499819267887766}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: TestKey
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -38,7 +38,7 @@ GameObject:
   - component: {fileID: 33565502651685312}
   - component: {fileID: 65151012152641650}
   - component: {fileID: 23232892035052842}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}

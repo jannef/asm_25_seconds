@@ -20,7 +20,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4051997186133058}
   - component: {fileID: 114068577152859720}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: TestGoal
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -38,7 +38,7 @@ GameObject:
   - component: {fileID: 33098772407649882}
   - component: {fileID: 65829922377341630}
   - component: {fileID: 23248583302806652}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}

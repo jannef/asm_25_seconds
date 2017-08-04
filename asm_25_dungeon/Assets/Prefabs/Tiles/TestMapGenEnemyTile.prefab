@@ -20,7 +20,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4395545972193060}
   - component: {fileID: 114412715836530630}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: TestMapGenEnemyTile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -38,7 +38,7 @@ GameObject:
   - component: {fileID: 33116116147993288}
   - component: {fileID: 64030888857795262}
   - component: {fileID: 23439555558923944}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Plane
   m_TagString: Untagged
   m_Icon: {fileID: 0}
