@@ -20,12 +20,12 @@ public class MapManager : MonoBehaviour {
 
     [Multiline(8)]
     public string MapInput = "";
-    public TileBind[] TileDefinitions;
+    public Tile[] TileDefinitions;
     public Player Player;
 
     bool _exitUnlocked;
     char[][] _mapArray;
-    TileBind[][] _mapTiles;
+    Tile[][] _mapTiles;
     Vector3 _tileScaleVector = new Vector3();
 
 	// Use this for initialization
@@ -34,7 +34,7 @@ public class MapManager : MonoBehaviour {
         _mapArray = ParseMapString(MapInput);
         _mapTiles = ParseMapChars(_mapArray);
         SpawnTiles(_mapTiles);
-        PlacePlayer();
+        PlacePlayer();        
 	}
 
     private void PlacePlayer()
@@ -48,24 +48,28 @@ public class MapManager : MonoBehaviour {
         }
     }
 
-    private TileBind[][] ParseMapChars(char[][] charMap)
+    private Tile[][] ParseMapChars(char[][] charMap)
     {
-        TileBind[][] tileMap = new TileBind[charMap.Length][];
+        Tile[][] tileMap = new Tile[charMap.Length][];
         for(int i = 0; i < charMap.Length; i++)
         {
             // Initialize tile map row
-            tileMap[i] = new TileBind[charMap[i].Length];
+            tileMap[i] = new Tile[charMap[i].Length];
             // Populate tile map row
             for(int j = 0; j < charMap[i].Length; j++)
             {
                 // Find corresponding tile and put it to the array
-                foreach(TileBind t in TileDefinitions)
+                foreach(Tile t in TileDefinitions)
                 {
                     if (t.Key.Equals(charMap[i][j]))
                     {
                         tileMap[i][j] = t;
                         break;
                     }
+                }
+                if(tileMap[i][j] == null)
+                {
+                    Debug.LogWarning("There was no tile found for " + charMap[i][j] + "!");
                 }
             }
         }
@@ -103,13 +107,13 @@ public class MapManager : MonoBehaviour {
         return parsedMap;
     }
 
-    float GetScaleFactor(TileBind[][] tileMap)
+    float GetScaleFactor(Tile[][] tileMap)
     {
 
         return Screen.width/tileMap.Length;
     }
 
-    void SpawnTiles(TileBind[][] tileMap)
+    void SpawnTiles(Tile[][] tileMap)
     {
         Vector3 spawnPosition = new Vector3();
         float scale = GetScaleFactor(tileMap);
@@ -117,7 +121,7 @@ public class MapManager : MonoBehaviour {
         {
             for(int j = 0; j < tileMap[i].Length; j++)
             {
-                if (tileMap[i][j].Prefab != null)
+                if (tileMap[i][j] != null)
                 {                    
                     spawnPosition = GetTileScenePosition(i,j);
                     //spawnPosition.z = -spawnPosition.y;
@@ -126,8 +130,18 @@ public class MapManager : MonoBehaviour {
                     //spawnPosition.z = j;
                     //spawnPosition.y = 0;
 
-                    Transform tileTransform = Instantiate(tileMap[i][j].Prefab, spawnPosition, Quaternion.identity);
-                    
+                    Tile tileTransform = Instantiate(tileMap[i][j], spawnPosition, Quaternion.identity);
+                    tileMap[i][j] = tileTransform;
+
+                    if (tileTransform.EnemyOnTile != null)
+                    {
+                        Enemy e = Instantiate(tileTransform.EnemyOnTile, tileTransform.transform.position, Quaternion.identity);
+                        tileTransform.EnemyOnTile = e;
+                        Transform t = e.transform;
+                        t.SetParent(tileTransform.transform);
+
+
+                    }
                     // TODO Scale boxes
                     //tileTransform.localScale = Camera.main.ScreenToWorldPoint(_tileScaleVector);
                 }
@@ -136,16 +150,16 @@ public class MapManager : MonoBehaviour {
         }
     }
 
-    public TileBind GetTileAt(int x, int y)
+    public Tile GetTileAt(int x, int y)
     {
-        TileBind tile;
+        Tile tile;
         try
         {
             tile = _mapTiles[x][y];
         }
         catch
         {
-            tile = new TileBind();
+            tile = null;
         }
         return tile;
     }
@@ -159,11 +173,4 @@ public class MapManager : MonoBehaviour {
 
         return scenePos;
     }
-}
-
-[Serializable]
-public struct TileBind
-{
-    public char Key;
-    public Transform Prefab;
 }

@@ -1,18 +1,27 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
+
+[RequireComponent(typeof(PlayerAttributes))]
+[RequireComponent(typeof(TimerHealth))]
 
 public class Player : MonoBehaviour {
-    public enum MovementEvent { None, Blocked, Pass, Enemy, Item, Exit }
+    public static Player ActivePlayer;
     public int PositionTileY = 0;
     public int PositionTileX = 0;
     public int MoveLimit = -1;
+    private PlayerAttributes _attr;
 
 	// Use this for initialization
 	void Start () {
+        ActivePlayer = this;
+        _attr = GetComponent<PlayerAttributes>();
 		
 	}
 	
+    public void GainXP(int amount)
+    {
+        _attr.GainXP(amount);
+    }
+
 	// Update is called once per frame
 	void Update () {
         if (Input.GetKeyDown(KeyCode.W))
@@ -54,7 +63,7 @@ public class Player : MonoBehaviour {
         // Direction fix
         directionY *= -1;
         int steps = 0;
-        TileBind targetTile;
+        Tile targetTile;
         while (IsPassable(targetTile = MapManager.Instance.GetTileAt(targetTileY+directionY, targetTileX+directionX)) && (steps < MoveLimit || MoveLimit < 0))
         {
             targetTileY += directionY;
@@ -64,13 +73,13 @@ public class Player : MonoBehaviour {
 
         switch (CheckTileForEvent(targetTile))
         {
-            case MovementEvent.Item:
+            case Tile.MovementEvent.Item:
                 MapManager.Instance.UnlockExit(true);
                 break;
-            case MovementEvent.Exit:
+            case Tile.MovementEvent.Exit:
                 MapManager.Instance.Exit();
                 break;
-            case MovementEvent.Enemy:
+            case Tile.MovementEvent.Enemy:
                 Fight(targetTile);
                 break;
         }
@@ -80,33 +89,47 @@ public class Player : MonoBehaviour {
         PositionTileX = targetTileX;
     }
 
-    private bool IsPassable(TileBind tile)
+    private bool IsPassable(Tile tile)
     {
-        return CheckTileForEvent(tile) == MovementEvent.Pass;
+        return tile != null && CheckTileForEvent(tile) == Tile.MovementEvent.Pass;
     }
-    private MovementEvent CheckTileForEvent(TileBind tile)
+    private Tile.MovementEvent CheckTileForEvent(Tile tile)
     {
+        if(tile == null)
+        {
+            return Tile.MovementEvent.None;
+        }
+        /*
         // TODO set and fetch event from the tile's object
         if (tile.Key.Equals('*'))
         {
-            return MovementEvent.Pass;
+            return Tile.MovementEvent.Pass;
         }
         else if (tile.Key.Equals('#'))
         {
-            return MovementEvent.Exit;
+            return Tile.MovementEvent.Exit;
         } else if (tile.Key.Equals('$'))
         {
-            return MovementEvent.Item;
+            return Tile.MovementEvent.Item;
         }
         else
         {
-            return MovementEvent.Blocked;
-        }
+            return Tile.MovementEvent.Blocked;
+        }*/
+
+        return tile.GetMovementEvent();
     }
 
-    private void Fight(TileBind enemyTile)
+    private void Fight(Tile tileEnemy)
     {
-        // TODO Encounter
-        Debug.LogFormat("[color='red']ENEMY[/color]");
+        if(tileEnemy == null)
+        {
+            Debug.LogWarning("Tried to fight a null enemy!");
+            return;
+        }
+        float dmg = tileEnemy.EnemyOnTile.GetAttackPower();
+        _attr.TakeDamage(dmg);
+        tileEnemy.EnemyOnTile.TakeDamage(_attr.Attack);
+        Debug.LogFormat("<color='red'>ENEMY ATTACKED</color>");
     }
 }

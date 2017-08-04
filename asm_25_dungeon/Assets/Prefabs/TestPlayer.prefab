@@ -22,8 +22,10 @@ GameObject:
   - component: {fileID: 33092608220356492}
   - component: {fileID: 136064427272760490}
   - component: {fileID: 23298662937827544}
-  - component: {fileID: 114587279679780352}
   - component: {fileID: 114119135020248474}
+  - component: {fileID: 114166587370549658}
+  - component: {fileID: 114616181421564604}
+  - component: {fileID: 114175955268110518}
   m_Layer: 0
   m_Name: TestPlayer
   m_TagString: Untagged
@@ -96,7 +98,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _swipeTreshold: 0
   _controller: {fileID: 0}
---- !u!114 &114587279679780352
+--- !u!114 &114166587370549658
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1210617091904172}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 23a4c4595bb83c74396a66f0978f274f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TimeLeft: 25
+--- !u!114 &114175955268110518
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -107,9 +121,28 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8eb0498e7e7afff4b993c53ef6a9cf7c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PositionTileX: 0
   PositionTileY: 0
+  PositionTileX: 0
   MoveLimit: -1
+--- !u!114 &114616181421564604
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1210617091904172}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4956bfb4a9174d42b5a2a4b38bac5a8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Attack: 1
+  Health: 1
+  Level: 1
+  XP: 0
+  XpToNextLevel: 10
+  EnableUI: 1
+  LevelValue: {fileID: 0}
+  HPValue: {fileID: 0}
 --- !u!136 &136064427272760490
 CapsuleCollider:
   m_ObjectHideFlags: 1
