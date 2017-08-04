@@ -1,5 +1,7 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
+using UnityEngine.UI;
 
 namespace Asm
 {
@@ -8,6 +10,8 @@ namespace Asm
      */
     public class TouchController : MonoBehaviour
     {
+        [SerializeField] private ParticleSystem _touchParticles;
+
         public event TouchResolved TouchEnded;
         private readonly Dictionary<int, Vector2> _touches = new Dictionary<int, Vector2>();
 
@@ -38,11 +42,26 @@ namespace Asm
                     TouchEnds(touch, touchIndex);
                     break;
                 case TouchPhase.Moved:
+                    TouchContinues(touch, touchIndex);
                     break;
                 case TouchPhase.Stationary:
                     break;
                 default:
                     break;
+            }
+        }
+
+        private void TouchContinues(Touch touch, int index)
+        {
+            var endPosition = touch.position;
+            var totalDelta = touch.deltaPosition;
+            if (_touchParticles != null)
+            {
+                var normalizedDelta = totalDelta.normalized;
+                _touchParticles.transform.position = Camera.main.ScreenToWorldPoint(new Vector3(endPosition.x, endPosition.y, 0f) + Vector3.up * 11f);
+                _touchParticles.transform.LookAt(_touchParticles.transform.position - new Vector3(normalizedDelta.x, 0, normalizedDelta.y));
+
+                _touchParticles.Emit(5);
             }
         }
 
@@ -65,10 +84,17 @@ namespace Asm
             {
                 var endPosition = touch.position;
                 var totalDelta = endPosition - _touches[index];
-                Debug.Log(string.Format("touch with id {0} ended with total delta: {1}", index, totalDelta));
                 if (TouchEnded != null)
                 {
                     TouchEnded.Invoke(totalDelta);
+                    if (_touchParticles != null)
+                    {
+                        var normalizedDelta = totalDelta.normalized;
+                        _touchParticles.transform.position = Camera.main.ScreenToWorldPoint(new Vector3(endPosition.x, endPosition.y, 0f) + Vector3.up * 11f);
+                        _touchParticles.transform.LookAt(_touchParticles.transform.position + new Vector3(normalizedDelta.x, 0, normalizedDelta.y));
+
+                        _touchParticles.Emit(52);
+                    }
                 }
             }
         }
