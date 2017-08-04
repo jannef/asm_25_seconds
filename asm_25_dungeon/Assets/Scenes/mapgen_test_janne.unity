@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657826, g: 0.49641263, b: 0.57481676, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657844, g: 0.49641222, b: 0.57481694, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -138,10 +138,10 @@ RectTransform:
   m_Father: {fileID: 561154208}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 200.55, y: -331.74}
-  m_SizeDelta: {x: 44.9, y: 50.51}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 0}
+  m_AnchoredPosition: {x: 330.2, y: 49.2}
+  m_SizeDelta: {x: -704.6, y: 68.8}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &51541716
 MonoBehaviour:
@@ -155,7 +155,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -164,11 +164,11 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 36
+    m_FontSize: 48
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 3
-    m_MaxSize: 40
+    m_MaxSize: 48
     m_Alignment: 0
     m_AlignByGeometry: 0
     m_RichText: 1
@@ -213,9 +213,9 @@ RectTransform:
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 376.3, y: 19.8}
-  m_SizeDelta: {x: 43.23, y: 21.63}
+  m_AnchorMax: {x: 1, y: 0}
+  m_AnchoredPosition: {x: 213.59988, y: 49.200012}
+  m_SizeDelta: {x: -691.8, y: 49.615}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &351886640
 MonoBehaviour:
@@ -229,7 +229,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -238,10 +238,10 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 14
+    m_FontSize: 36
     m_FontStyle: 0
     m_BestFit: 0
-    m_MinSize: 10
+    m_MinSize: 3
     m_MaxSize: 40
     m_Alignment: 0
     m_AlignByGeometry: 0
@@ -592,10 +592,10 @@ RectTransform:
   m_Father: {fileID: 561154208}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -55.2, y: -322.76}
-  m_SizeDelta: {x: 133.1, y: 50.51}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 0}
+  m_AnchoredPosition: {x: -167.8, y: 66.771}
+  m_SizeDelta: {x: -639.8, y: 57.158}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &971170576
 MonoBehaviour:
@@ -609,7 +609,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -618,18 +618,18 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 36
+    m_FontSize: 48
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 3
-    m_MaxSize: 40
+    m_MaxSize: 48
     m_Alignment: 0
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: '#'
+  m_Text: '#.##'
 --- !u!222 &971170577
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -849,14 +849,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ad24c0ddd0ae764790362ada79af8c2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MapInput: "***#*\n**oo*\n*o$**\n**o\xA4*\n**\xA4*o\no****\n*****"
+  MapInput: '***#*
+
+    **oo*
+
+    *o$**
+
+    **ox*
+
+    **x*o
+
+    o****
+
+    **I**'
   TileDefinitions:
-  - {fileID: 114412715836530630, guid: 0ebb00e7ec971dc40be6c5812513c658, type: 2}
-  - {fileID: 114451100289347236, guid: f819d23f615ffb040ae582b281f449a2, type: 2}
-  - {fileID: 114499819267887766, guid: e6ef8c008ee0c184b8557ffc7d89c5cc, type: 2}
+  - {fileID: 114835244538289700, guid: 06d27619b05168643b97ff3b667e0163, type: 2}
+  - {fileID: 114819160996756768, guid: 39f3d6a288e425d43a6299908a8c0089, type: 2}
+  - {fileID: 114433365099335926, guid: 75b4727d04773e34a8b8368e6790dd1a, type: 2}
   - {fileID: 114068577152859720, guid: c11f25a4d1c5dac42af3502241974e8a, type: 2}
-  - {fileID: 114412715836530630, guid: 9c7a1d21b4a66f1479324323eaeaa1bb, type: 2}
-  Player: {fileID: 114175955268110518, guid: 7ce85150639ba7c44b79f4ffb8c86afa, type: 2}
+  - {fileID: 114835244538289700, guid: ae85fa93d1e6bc84e8a32f8308e6828c, type: 2}
+  - {fileID: 114872331883596694, guid: 16bc4ee999118bf4aa21585e04d1aad2, type: 2}
+  Player: {fileID: 114175955268110518, guid: 2d6a9f698f8fdeb4b99eccf1978b77e6, type: 2}
 --- !u!4 &1894199387
 Transform:
   m_ObjectHideFlags: 0

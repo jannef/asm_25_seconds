@@ -9,7 +9,7 @@ EditorBuildSettings:
     path: Assets/Scenes/mapgen_test_janne.unity
     guid: 0937c7ec8fb14cd49b55fb01a447bb10
   - enabled: 0
-    path: Assets/Scenes/mapgen_test.unity
+    path: 
     guid: 5ced9b39b17fe5642bb628637c883d8b
   - enabled: 0
     path: Assets/staging scene.unity
