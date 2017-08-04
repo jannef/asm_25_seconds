@@ -5,12 +5,12 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/mapgen_test_janne.unity
+    guid: 0937c7ec8fb14cd49b55fb01a447bb10
   - enabled: 0
     path: Assets/Scenes/mapgen_test.unity
     guid: 5ced9b39b17fe5642bb628637c883d8b
   - enabled: 0
     path: Assets/staging scene.unity
     guid: ca1eb226a5f447842b0d3a58be860ba2
-  - enabled: 1
-    path: Assets/Scenes/mapgen_test_janne.unity
-    guid: 0937c7ec8fb14cd49b55fb01a447bb10

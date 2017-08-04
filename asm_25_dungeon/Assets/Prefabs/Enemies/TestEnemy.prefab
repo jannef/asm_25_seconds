@@ -123,8 +123,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b85eda2ff519c934c89dea0f4f4865c0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Attack: 5
-  Health: 2
+  Attack: 1
+  Health: 1
 --- !u!114 &114547279876868064
 MonoBehaviour:
   m_ObjectHideFlags: 1

@@ -33,6 +33,7 @@ public class PlayerAttributes : CreatureAttributes {
     }
     internal void GainXP(int amount)
     {
+        // TODO: Increase max time by 5 per levelup
         XP += amount;
         while(XP >= XpToNextLevel)
         {
@@ -40,6 +41,11 @@ public class PlayerAttributes : CreatureAttributes {
             XP = XP - XpToNextLevel;
             Debug.LogFormat("<color='teal'>Player leveled up to " + Level + "!</color>");
         }
+    }
+
+    public float GetPlayerAttack()
+    {
+        return Level;
     }
 
     private void Update()

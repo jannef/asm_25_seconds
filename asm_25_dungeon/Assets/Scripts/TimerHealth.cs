@@ -4,7 +4,7 @@ using UnityEngine;
 
 [RequireComponent(typeof(CreatureAttributes))]
 public class TimerHealth : MonoBehaviour {
-    public const float TimeLimit = 25.0f;
+    public float TimeLimit = 25.0f;
     public float TimeLeft = 25.0f;
     CreatureAttributes _attr;
 	// Use this for initialization
@@ -28,7 +28,7 @@ public class TimerHealth : MonoBehaviour {
         if (_attr.GetHealth() < 0)
         {
             string deadStr = "<color=red>TIME'S UP, YOU'RE DE";
-            for(int i = 0; i < -TimeLeft; i++)
+            for(int i = 0; i < -_attr.GetHealth(); i++)
             {
                 deadStr += "E";
             }
