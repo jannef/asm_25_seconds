@@ -152,6 +152,6 @@ public class MapManager : MonoBehaviour {
     }
     public Vector3 GetTileScenePosition(int x, int y)
     {
-        return new Vector3(y - maxY/2f, 0, maxX/2f - x);
+        return new Vector3(y - maxY/2f + 0.5f, 0, maxX/2f - x);
     }
 }
