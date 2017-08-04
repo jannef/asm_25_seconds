@@ -26,6 +26,7 @@ public class MapManager : MonoBehaviour {
     bool _exitUnlocked;
     char[][] _mapArray;
     TileBind[][] _mapTiles;
+    Vector3 _tileScaleVector = new Vector3();
 
 	// Use this for initialization
 	void Start () {
@@ -40,7 +41,7 @@ public class MapManager : MonoBehaviour {
     {
         if (Player != null)
         {
-            Instantiate(Player.transform, GetTileScenePosition(Player.PositionTileX, Player.PositionTileY), Quaternion.identity);
+            Instantiate(Player.transform, GetTileScenePosition(Player.PositionTileY, Player.PositionTileX), Quaternion.identity);
         } else
         {
             Debug.LogWarning("Player not defined for MapManager");
@@ -102,24 +103,33 @@ public class MapManager : MonoBehaviour {
         return parsedMap;
     }
 
-    float GetScaleFactor(char[][] charMap)
+    float GetScaleFactor(TileBind[][] tileMap)
     {
 
-        return 1.0f;
+        return Screen.width/tileMap.Length;
     }
 
     void SpawnTiles(TileBind[][] tileMap)
     {
         Vector3 spawnPosition = new Vector3();
+        float scale = GetScaleFactor(tileMap);
         for (int i = 0; i < tileMap.Length; i++)
         {
             for(int j = 0; j < tileMap[i].Length; j++)
             {
                 if (tileMap[i][j].Prefab != null)
-                {
-                    spawnPosition.x = i;
-                    spawnPosition.z = j;
-                    Instantiate(tileMap[i][j].Prefab, spawnPosition, Quaternion.identity);
+                {                    
+                    spawnPosition = GetTileScenePosition(i,j);
+                    //spawnPosition.z = -spawnPosition.y;
+                    
+                    //spawnPosition.x = i;
+                    //spawnPosition.z = j;
+                    //spawnPosition.y = 0;
+
+                    Transform tileTransform = Instantiate(tileMap[i][j].Prefab, spawnPosition, Quaternion.identity);
+                    
+                    // TODO Scale boxes
+                    //tileTransform.localScale = Camera.main.ScreenToWorldPoint(_tileScaleVector);
                 }
 
             }
@@ -141,7 +151,13 @@ public class MapManager : MonoBehaviour {
     }
     public Vector3 GetTileScenePosition(int x, int y)
     {
-        return new Vector3(x, 0, y);
+        float sceneScale = Screen.width / _mapTiles[x].Length;
+        Vector3 scenePos = Camera.main.ScreenToWorldPoint(new Vector3(sceneScale * (y + 0.5f), Screen.height-sceneScale*(x+0.5f), 0));
+
+        //scenePos.z = y;
+        scenePos.y = 0;
+
+        return scenePos;
     }
 }
 

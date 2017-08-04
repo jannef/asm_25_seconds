@@ -408,7 +408,11 @@ MonoBehaviour:
 
     **o**
 
-    **o**'
+    **o**
+
+    *****
+
+    *****'
   TileDefinitions:
   - Key: 42
     Prefab: {fileID: 4395545972193060, guid: 0ebb00e7ec971dc40be6c5812513c658, type: 2}

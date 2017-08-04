@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class Player : MonoBehaviour {
     public enum MovementEvent { None, Blocked, Pass, Enemy, Item, Exit }
-    public int PositionTileX = 0;
     public int PositionTileY = 0;
+    public int PositionTileX = 0;
     public int MoveLimit = -1;
 
 	// Use this for initialization
@@ -41,8 +41,8 @@ public class Player : MonoBehaviour {
     }
     public void Move(int directionX, int directionY)
     {
-        int targetTileX = PositionTileX;
         int targetTileY = PositionTileY;
+        int targetTileX = PositionTileX;
         if (directionX == 0 && directionY == 0)
         {
             return;
@@ -51,13 +51,14 @@ public class Player : MonoBehaviour {
         {
             directionX = 0;
         }
-
+        // Direction fix
+        directionY *= -1;
         int steps = 0;
         TileBind targetTile;
-        while (IsPassable(targetTile = MapManager.Instance.GetTileAt(targetTileX+directionX, targetTileY+directionY)) && (steps < MoveLimit || MoveLimit < 0))
+        while (IsPassable(targetTile = MapManager.Instance.GetTileAt(targetTileY+directionY, targetTileX+directionX)) && (steps < MoveLimit || MoveLimit < 0))
         {
-            targetTileX += directionX;
             targetTileY += directionY;
+            targetTileX += directionX;
             steps++;
         }
 
@@ -74,9 +75,9 @@ public class Player : MonoBehaviour {
                 break;
         }
 
-        transform.position = MapManager.Instance.GetTileScenePosition(targetTileX, targetTileY);
-        PositionTileX = targetTileX;
+        transform.position = MapManager.Instance.GetTileScenePosition(targetTileY, targetTileX);
         PositionTileY = targetTileY;
+        PositionTileX = targetTileX;
     }
 
     private bool IsPassable(TileBind tile)
