@@ -11,7 +11,6 @@ namespace Asm
     public class TouchController : MonoBehaviour
     {
         [SerializeField] private ParticleSystem _touchParticles;
-        [SerializeField] private Text _text;
 
         public event TouchResolved TouchEnded;
         private readonly Dictionary<int, Vector2> _touches = new Dictionary<int, Vector2>();
@@ -62,9 +61,6 @@ namespace Asm
                 _touchParticles.transform.position = Camera.main.ScreenToWorldPoint(new Vector3(endPosition.x, endPosition.y, 0f) + Vector3.up * 11f);
                 _touchParticles.transform.LookAt(_touchParticles.transform.position - new Vector3(normalizedDelta.x, 0, normalizedDelta.y));
 
-                _text.text = _touchParticles.transform.position.ToString();
-
-
                 _touchParticles.Emit(5);
             }
         }
@@ -96,9 +92,6 @@ namespace Asm
                         var normalizedDelta = totalDelta.normalized;
                         _touchParticles.transform.position = Camera.main.ScreenToWorldPoint(new Vector3(endPosition.x, endPosition.y, 0f) + Vector3.up * 11f);
                         _touchParticles.transform.LookAt(_touchParticles.transform.position + new Vector3(normalizedDelta.x, 0, normalizedDelta.y));
-
-                        _text.text = _touchParticles.transform.position.ToString();
-
 
                         _touchParticles.Emit(52);
                     }
