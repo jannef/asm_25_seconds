@@ -110,6 +110,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 23a4c4595bb83c74396a66f0978f274f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  TimeLimit: 25
   TimeLeft: 25
 --- !u!114 &114175955268110518
 MonoBehaviour:
@@ -122,6 +123,36 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8eb0498e7e7afff4b993c53ef6a9cf7c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  OnMovementCompleted:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
+  OnMovementStarted:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
+  AnimationSpeed: 8.8
+  MovementCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - serializedVersion: 2
+      time: 1
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+  InputBufferingDuration: 0.2
   PositionTileY: 0
   PositionTileX: 0
   MoveLimit: -1

@@ -96,9 +96,8 @@ public class MapManager : MonoBehaviour {
 
     char[][] ParseMapString(string mapStr)
     {
-        char[][] parsedMap;
         string[] rows = mapStr.Split('\n');
-        parsedMap = new char[rows.Length][];
+        var parsedMap = new char[rows.Length][];
         for (int i = 0; i < parsedMap.Length; i++)
         {
             parsedMap[i] = rows[i].Trim('\r').ToCharArray();
@@ -109,8 +108,7 @@ public class MapManager : MonoBehaviour {
 
     float GetScaleFactor(Tile[][] tileMap)
     {
-
-        return Screen.width/tileMap.Length;
+        return 1.24f;
     }
 
     void SpawnTiles(Tile[][] tileMap)
@@ -139,11 +137,9 @@ public class MapManager : MonoBehaviour {
                         tileTransform.EnemyOnTile = e;
                         Transform t = e.transform;
                         t.SetParent(tileTransform.transform);
-
-
                     }
-                    // TODO Scale boxes
-                    //tileTransform.localScale = Camera.main.ScreenToWorldPoint(_tileScaleVector);
+
+                    tileTransform.transform.localScale = Vector3.one * scale;
                 }
 
             }
