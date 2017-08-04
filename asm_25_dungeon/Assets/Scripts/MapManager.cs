@@ -106,15 +106,15 @@ public class MapManager : MonoBehaviour {
         return parsedMap;
     }
 
-    float GetScaleFactor(Tile[][] tileMap)
-    {
-        return 1.24f;
-    }
+    public int maxX = 0;
+    public int maxY = 0;
 
     void SpawnTiles(Tile[][] tileMap)
     {
+        maxX = tileMap.Length;
+        maxY = tileMap[0].Length;
+
         Vector3 spawnPosition = new Vector3();
-        float scale = GetScaleFactor(tileMap);
         for (int i = 0; i < tileMap.Length; i++)
         {
             for(int j = 0; j < tileMap[i].Length; j++)
@@ -122,12 +122,6 @@ public class MapManager : MonoBehaviour {
                 if (tileMap[i][j] != null)
                 {                    
                     spawnPosition = GetTileScenePosition(i,j);
-                    //spawnPosition.z = -spawnPosition.y;
-                    
-                    //spawnPosition.x = i;
-                    //spawnPosition.z = j;
-                    //spawnPosition.y = 0;
-
                     Tile tileTransform = Instantiate(tileMap[i][j], spawnPosition, Quaternion.identity);
                     tileMap[i][j] = tileTransform;
 
@@ -138,10 +132,7 @@ public class MapManager : MonoBehaviour {
                         Transform t = e.transform;
                         t.SetParent(tileTransform.transform);
                     }
-
-                    tileTransform.transform.localScale = Vector3.one * scale;
                 }
-
             }
         }
     }
@@ -161,12 +152,6 @@ public class MapManager : MonoBehaviour {
     }
     public Vector3 GetTileScenePosition(int x, int y)
     {
-        float sceneScale = Screen.width / _mapTiles[x].Length;
-        Vector3 scenePos = Camera.main.ScreenToWorldPoint(new Vector3(sceneScale * (y + 0.5f), Screen.height-sceneScale*(x+0.5f), 0));
-
-        //scenePos.z = y;
-        scenePos.y = 0;
-
-        return scenePos;
+        return new Vector3(y - maxY/2f + 0.5f, 0, maxX/2f - x);
     }
 }
