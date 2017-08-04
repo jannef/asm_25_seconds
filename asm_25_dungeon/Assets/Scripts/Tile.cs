@@ -6,6 +6,7 @@ public class Tile : MonoBehaviour {
     public enum MovementEvent { None, Blocked, Pass, Enemy, Item, Exit }
     public char Key;
     public Enemy EnemyOnTile;
+    public Item ItemOnTile;
     [SerializeField]
     private MovementEvent _moveEvent = MovementEvent.Pass;
     public MovementEvent GetMovementEvent()

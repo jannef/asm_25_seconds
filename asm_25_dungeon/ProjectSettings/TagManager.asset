@@ -6,6 +6,7 @@ TagManager:
   tags:
   - lvl_value
   - hp_value
+  - atk_value
   layers:
   - Default
   - TransparentFX

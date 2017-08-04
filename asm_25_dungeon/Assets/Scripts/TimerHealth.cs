@@ -13,10 +13,10 @@ public class TimerHealth : MonoBehaviour {
         ResetTime();
 	}
 	
-    void ResetTime()
+    public void ResetTime()
     {
         //TimeLeft = 25.0f;
-        _attr.SetHealth(TimeLimit);
+        _attr.SetHealth(TimeLimit + (PlayerAttributes.Level-1)*5);
 
     }
 

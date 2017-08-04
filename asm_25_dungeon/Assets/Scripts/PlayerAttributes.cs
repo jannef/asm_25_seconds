@@ -5,13 +5,14 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class PlayerAttributes : CreatureAttributes {
-    public int Level = 1;
+    public static int Level = 1;
     public int XP = 0;
     public int XpToNextLevel = 10;
     [Header("UI")]
     public bool EnableUI = true;
     public Text LevelValue;
     public Text HPValue;
+    public Text AtkValue;
 
     private void Start()
     {
@@ -28,6 +29,12 @@ public class PlayerAttributes : CreatureAttributes {
             if (hp_obj != null)
             {
                 HPValue = hp_obj.GetComponent<Text>();
+            }
+
+            GameObject atk_obj = GameObject.FindWithTag("atk_value");
+            if (atk_obj != null)
+            {
+                AtkValue = atk_obj.GetComponent<Text>();
             }
         }
     }
@@ -54,6 +61,7 @@ public class PlayerAttributes : CreatureAttributes {
         {
             LevelValue.text = Level.ToString();
             HPValue.text = Health.ToString("#.0");
+            AtkValue.text = GetPlayerAttack().ToString();
         }
     }
 }

@@ -16,7 +16,6 @@ public class Player : MonoBehaviour
 
     private MovementCommand pooledCommand;
     
-
     public bool MovementInProgress
     {
         get { return _movementInProgress; }
@@ -51,14 +50,22 @@ public class Player : MonoBehaviour
     public int PositionTileX = 0;
     public int MoveLimit = -1;
     private PlayerAttributes _attr;
+    private TimerHealth _timer;
 
     void Awake()
     {
         _attr = GetComponent<PlayerAttributes>();
+        _timer = GetComponent<TimerHealth>();
+        
     }
 
-	// Use this for initialization
-	void Start () {
+    public void ResetHealth()
+    {
+        _timer.ResetTime();
+    }
+
+    // Use this for initialization
+    void Start () {
         ActivePlayer = this;
 	    pooledCommand = new MovementCommand
 	    {
@@ -142,7 +149,7 @@ public class Player : MonoBehaviour
             switch (CheckTileForEvent(targetTile))
             {
                 case Tile.MovementEvent.Item:
-                    MapManager.Instance.UnlockExit(true);
+
                     break;
                 case Tile.MovementEvent.Exit:
                     MapManager.Instance.Exit();
@@ -204,25 +211,12 @@ public class Player : MonoBehaviour
         {
             return Tile.MovementEvent.None;
         }
-        /*
-        // TODO set and fetch event from the tile's object
-        if (tile.Key.Equals('*'))
+        Tile.MovementEvent mvEv = tile.GetMovementEvent();
+        if(mvEv == Tile.MovementEvent.Item)
         {
-            return Tile.MovementEvent.Pass;
+            tile.ItemOnTile.PickUp();
         }
-        else if (tile.Key.Equals('#'))
-        {
-            return Tile.MovementEvent.Exit;
-        } else if (tile.Key.Equals('$'))
-        {
-            return Tile.MovementEvent.Item;
-        }
-        else
-        {
-            return Tile.MovementEvent.Blocked;
-        }*/
-
-        return tile.GetMovementEvent();
+        return mvEv;
     }
 
     private void Fight(Tile tileEnemy)

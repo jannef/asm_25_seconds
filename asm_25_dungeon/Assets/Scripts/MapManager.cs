@@ -132,6 +132,12 @@ public class MapManager : MonoBehaviour {
                         Transform t = e.transform;
                         t.SetParent(tileTransform.transform);
                     }
+                    if(tileTransform.ItemOnTile != null)
+                    {
+                        Item itm = Instantiate(tileTransform.ItemOnTile, tileTransform.transform.position+Vector3.up, Quaternion.Euler(90,0,0));
+                        tileTransform.ItemOnTile = itm;
+                        itm.transform.SetParent(tileTransform.transform);
+                    }
                 }
             }
         }
