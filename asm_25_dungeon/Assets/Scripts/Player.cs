@@ -23,13 +23,16 @@ public class Player : MonoBehaviour
 
         private set
         {
+            Debug.Log(string.Format("Lock set! {0} -> {1}", _movementInProgress, value));
             if (OnMovementStarted != null && _movementInProgress && !value)
             {
+                Debug.Log("Completed triggered next");
                 // falling edge for the lock
                 OnMovementCompleted.Invoke();
             }
             else if (OnMovementStarted != null && !_movementInProgress && value)
             {
+                Debug.Log("Started triggered next");
                 // rising edge of the lock
                 OnMovementStarted.Invoke();
             }
@@ -44,11 +47,11 @@ public class Player : MonoBehaviour
         public float lifetime;
     }
 
-    private bool _movementInProgress = false;
+    private bool _movementInProgress;
 
     public static Player ActivePlayer;
-    public int PositionTileY = 0;
-    public int PositionTileX = 0;
+    public int PositionTileY;
+    public int PositionTileX;
     public int MoveLimit = -1;
     private PlayerAttributes _attr;
 
@@ -93,7 +96,7 @@ public class Player : MonoBehaviour
 	        Move(1, 0);
 	    }
 
-        if (!_movementInProgress)
+        if (!MovementInProgress)
 	    {
 	        if (pooledCommand.lifetime > 0f)
 	        {
@@ -172,7 +175,7 @@ public class Player : MonoBehaviour
 
     private IEnumerator MovementAnimation(Vector3 targetPosition, int distanceInSquares)
     {
-        _movementInProgress = true;
+        MovementInProgress = true;
         
         if (distanceInSquares > 0 && AnimationSpeed > 0f)
         {
@@ -189,7 +192,7 @@ public class Player : MonoBehaviour
 
             transform.position = targetPosition;
         }
-        _movementInProgress = false;
+        MovementInProgress = false;
     }
 
 
