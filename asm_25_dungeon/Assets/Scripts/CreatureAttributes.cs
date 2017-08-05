@@ -1,9 +1,11 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class CreatureAttributes : MonoBehaviour {
     public float Attack = 1.0f;
+    public UnityEvent OnDeathEvent;
     [SerializeField]
     protected float Health = 1.0f;
     protected bool dying = false;
@@ -45,6 +47,8 @@ public class CreatureAttributes : MonoBehaviour {
             return;
         }
         dying = true;
+
+        if (OnDeathEvent != null) { OnDeathEvent.Invoke(); }
         SendMessage("OnDeath");
     }
 }
