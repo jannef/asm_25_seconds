@@ -14,9 +14,17 @@ public class Enemy : MonoBehaviour {
         }
         return _attr;
     }
-	// Use this for initialization
-	void Start () {
+    TextMesh _enemyInfo;
+    bool _uiEnabled;
+
+    private void Awake()
+    {
         GetAttr();
+        _enemyInfo = GetComponentInChildren<TextMesh>();
+        _uiEnabled = _enemyInfo != null;
+    }
+    // Use this for initialization
+    void Start () {
 	}
 	
     public float GetAttackPower()
@@ -26,11 +34,12 @@ public class Enemy : MonoBehaviour {
 
     public void TakeDamage(float AttackPower)
     {
-        _attr.TakeDamage(AttackPower);
+        GetAttr().TakeDamage(AttackPower);
     }
 
 	// Update is called once per frame
 	void Update () {
+        _enemyInfo.text = string.Format("HP:\t{0}\nATK:\t{1}", GetAttr().GetHealth(), GetAttackPower());
 		
 	}
 

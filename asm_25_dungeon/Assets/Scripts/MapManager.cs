@@ -177,7 +177,7 @@ public class MapManager : MonoBehaviour {
                     }
                     if (tileTransform.ItemOnTile != null)
                     {
-                        Item itm = Instantiate(tileTransform.ItemOnTile, tileTransform.transform.position + Vector3.up, Quaternion.Euler(90, 0, 0));
+                        Item itm = Instantiate(tileTransform.ItemOnTile, tileTransform.transform.position + Vector3.up, tileTransform.ItemOnTile.transform.rotation);
                         tileTransform.ItemOnTile = itm;
                         itm.transform.SetParent(tileTransform.transform);
                     }

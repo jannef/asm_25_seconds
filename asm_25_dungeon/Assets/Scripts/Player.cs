@@ -150,18 +150,7 @@ public class Player : MonoBehaviour
                 steps++;
             }
 
-            switch (CheckTileForEvent(targetTile))
-            {
-                case Tile.MovementEvent.Item:
-
-                    break;
-                case Tile.MovementEvent.Exit:
-                    MapManager.Instance.Exit();
-                    break;
-                case Tile.MovementEvent.Enemy:
-                    Fight(targetTile);
-                    break;
-            }
+            //CheckTileForEvent(targetTile); // Redundant/double dip, IsPassable() parses actions
 
             StartMovementAnimation(targetTileY, targetTileX, steps);
             PositionTileY = targetTileY;
@@ -227,7 +216,7 @@ public class Player : MonoBehaviour
     private bool IsPassable(Tile tile)
     {
         Tile.MovementEvent ev = CheckTileForEvent(tile);
-        return tile != null && (ev == Tile.MovementEvent.Pass || ev == Tile.MovementEvent.Item);
+        return tile != null && (ev == Tile.MovementEvent.Pass || ev == Tile.MovementEvent.Item || ev == Tile.MovementEvent.Enemy);
     }
     private Tile.MovementEvent CheckTileForEvent(Tile tile)
     {
@@ -236,10 +225,21 @@ public class Player : MonoBehaviour
             return Tile.MovementEvent.None;
         }
         Tile.MovementEvent mvEv = tile.GetMovementEvent();
-        if(mvEv == Tile.MovementEvent.Item)
+
+        switch (mvEv)
         {
-            tile.ItemOnTile.PickUp();
+            case Tile.MovementEvent.Item:
+                tile.ItemOnTile.PickUp();
+
+                break;
+            case Tile.MovementEvent.Exit:
+                MapManager.Instance.Exit();
+                break;
+            case Tile.MovementEvent.Enemy:
+                Fight(tile);
+                break;
         }
+
         return mvEv;
     }
 

@@ -6,7 +6,7 @@ using UnityEngine;
 public class TimerHealth : MonoBehaviour {
     public float TimeLimit = 25.0f;
     public float TimeLeft = 25.0f;
-    public bool GODMODE = true;
+    const bool GODMODE = false;
     CreatureAttributes _attr;
 	// Use this for initialization
 	void Start () {
