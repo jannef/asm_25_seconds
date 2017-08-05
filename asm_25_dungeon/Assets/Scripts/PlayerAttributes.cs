@@ -73,7 +73,7 @@ public class PlayerAttributes : CreatureAttributes {
 
     public float GetPlayerAttack()
     {
-        return Level*2;
+        return ATKVals[Level - 1];
     }
 
     private void Update()
