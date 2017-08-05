@@ -46,13 +46,14 @@ public class PlayerAttributes : CreatureAttributes {
         {
             Level++;
             XP = XP - XpToNextLevel;
+            XpToNextLevel = Level * 5;
             Debug.LogFormat("<color='teal'>Player leveled up to " + Level + "!</color>");
         }
     }
 
     public float GetPlayerAttack()
     {
-        return Level;
+        return Level*2;
     }
 
     private void Update()

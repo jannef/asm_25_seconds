@@ -23,14 +23,16 @@ public class CreatureAttributes : MonoBehaviour {
         }
     }
 
-    public void TakeDamage(float AttackPower)
+    public bool TakeDamage(float AttackPower)
     {
         Health -= AttackPower;
 
         if (Health <= 0)
         {
             Die();
+            return true;
         }
+        return false;
     }
     public void SetHealth(float value)
     {

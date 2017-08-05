@@ -4,6 +4,7 @@ using UnityEngine;
 
 [RequireComponent(typeof(CreatureAttributes))]
 public class Enemy : MonoBehaviour {
+    public int EnemyLevel = 1;
     public int XpYield = 5;
     CreatureAttributes _attr;
     CreatureAttributes GetAttr()
@@ -22,19 +23,23 @@ public class Enemy : MonoBehaviour {
         GetAttr();
         _enemyInfo = GetComponentInChildren<TextMesh>();
         _uiEnabled = _enemyInfo != null;
+        EnemyLevel = PlayerAttributes.Level;
     }
     // Use this for initialization
-    void Start () {
-	}
+    void Start ()
+    {
+        GetAttr().SetHealth(EnemyLevel * EnemyLevel);
+
+    }
 	
     public float GetAttackPower()
     {
-        return GetAttr().Attack;
+        return GetAttr().Attack+EnemyLevel;
     }
 
-    public void TakeDamage(float AttackPower)
+    public bool TakeDamage(float AttackPower)
     {
-        GetAttr().TakeDamage(AttackPower);
+        return GetAttr().TakeDamage(AttackPower);
     }
 
 	// Update is called once per frame

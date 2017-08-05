@@ -56,7 +56,7 @@ GameObject:
   - component: {fileID: 4447031965335302}
   - component: {fileID: 212303596970006628}
   m_Layer: 2
-  m_Name: Capsule
+  m_Name: Graphics
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -69,11 +69,11 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1360203175629510}
   m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 0.2, y: 0, z: -0}
+  m_LocalPosition: {x: 0.282, y: 1, z: -0.44}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4675244150309044}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
 --- !u!4 &4447031965335302
 Transform:
@@ -86,7 +86,7 @@ Transform:
   m_LocalScale: {x: 1.2, y: 1.2, z: 1.2}
   m_Children: []
   m_Father: {fileID: 4675244150309044}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
 --- !u!4 &4675244150309044
 Transform:
@@ -95,11 +95,11 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1097459022864554}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.543133, y: 0.99999905, z: 2.896217}
+  m_LocalPosition: {x: -1.608344, y: -2.9575195, z: 3.1799688}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 4447031965335302}
   - {fileID: 4413329788125460}
+  - {fileID: 4447031965335302}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -151,7 +151,7 @@ TextMesh:
   m_Anchor: 7
   m_Alignment: 1
   m_TabSize: 4
-  m_FontSize: 48
+  m_FontSize: 36
   m_FontStyle: 0
   m_RichText: 1
   m_Font: {fileID: 12800000, guid: 42890eb7e0e00a1449e22c6618335e2d, type: 3}
@@ -211,6 +211,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c75cd9b9682bc4e4a890a6f03f1f8fcf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  EnemyLevel: 1
   XpYield: 5
 --- !u!212 &212303596970006628
 SpriteRenderer:

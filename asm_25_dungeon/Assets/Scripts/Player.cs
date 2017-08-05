@@ -236,24 +236,27 @@ public class Player : MonoBehaviour
                 MapManager.Instance.Exit();
                 break;
             case Tile.MovementEvent.Enemy:
-                Fight(tile);
+                if (!Fight(tile))
+                {
+                    return Tile.MovementEvent.Blocked;
+                }
                 break;
         }
 
         return mvEv;
     }
 
-    private void Fight(Tile tileEnemy)
+    private bool Fight(Tile tileEnemy)
     {
         if(tileEnemy == null)
         {
             Debug.LogWarning("Tried to fight a null enemy!");
-            return;
+            return true;
         }
         float dmg = tileEnemy.EnemyOnTile.GetAttackPower();
         _attr.TakeDamage(dmg);
-        tileEnemy.EnemyOnTile.TakeDamage(_attr.Attack);
         Debug.LogFormat("<color='red'>ENEMY ATTACKED</color>");
+        return tileEnemy.EnemyOnTile.TakeDamage(_attr.GetPlayerAttack());
     }
     void OnDeath()
     {

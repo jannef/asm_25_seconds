@@ -35,7 +35,7 @@ public class MapManager : MonoBehaviour {
 
     GameObject _mapContainer;
 
-    int _loadedLevel = 0;
+    public int LoadedLevel = 0;
 
 	// Use this for initialization
 	void Start () {
@@ -45,7 +45,7 @@ public class MapManager : MonoBehaviour {
 
     public void LoadNextLevel()
     {
-        LoadLevel(_loadedLevel + 1);
+        LoadLevel(LoadedLevel + 1);
     }
     public void LoadLevel(int index)
     {
@@ -70,7 +70,7 @@ public class MapManager : MonoBehaviour {
 
             UnlockExit(false);
 
-            _loadedLevel = index;
+            LoadedLevel = index;
         } else
         {
             SceneManager.LoadScene(0);
