@@ -5,7 +5,7 @@ using UnityEngine;
 [RequireComponent(typeof(CreatureAttributes))]
 public class TimerHealth : MonoBehaviour {
     public float TimeLimit = 25.0f;
-    public float TimeLeft = 25.0f;
+    //public float TimeLeft = 25.0f;
     const bool GODMODE = false;
     CreatureAttributes _attr;
 	// Use this for initialization
@@ -17,7 +17,8 @@ public class TimerHealth : MonoBehaviour {
     public void ResetTime()
     {
         //TimeLeft = 25.0f;
-        _attr.SetHealth(TimeLimit + (PlayerAttributes.Level-1)*5);
+        //_attr.SetHealth(TimeLimit + (PlayerAttributes.Level-1)*5);
+        _attr.SetHealth(TimeLimit);
 
     }
 
@@ -36,11 +37,6 @@ public class TimerHealth : MonoBehaviour {
             }
             deadStr += "AD!</color>";
             Debug.LogFormat(deadStr);
-
-            if(TimeLeft < -10)
-            {
-                ResetTime();
-            }
         }
 	}
 }

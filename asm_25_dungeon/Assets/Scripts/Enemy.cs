@@ -28,7 +28,7 @@ public class Enemy : MonoBehaviour {
     // Use this for initialization
     void Start ()
     {
-        GetAttr().SetHealth(EnemyLevel * EnemyLevel);
+        GetAttr().SetHealth(1+((EnemyLevel-1)*2-1));
 
     }
 	

@@ -1,13 +1,6 @@
 ﻿public class Maps {
     public static string[] Array =
     {
-@"@**#*
-**oo*
-*o$**
-**ox*
-**x*o
-o****
-**i**",
 @"****i
 ****o
 *o***
@@ -15,6 +8,13 @@ o****
 *ooo*
 *****
 **$**",
+@"@**#*
+**oo*
+*o$**
+**ox*
+**x*o
+o****
+**i**",
 @"#**x*
 *ooo*
 *****

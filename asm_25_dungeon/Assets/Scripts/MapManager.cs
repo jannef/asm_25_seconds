@@ -81,7 +81,9 @@ public class MapManager : MonoBehaviour {
     {
         if (Player != null && Player.ActivePlayer == null)
         {
-            Instantiate(Player.transform, GetTileScenePosition((int)PlayerStartPos.y, (int)PlayerStartPos.x), Quaternion.identity);
+            Player p = Instantiate(Player, GetTileScenePosition((int)PlayerStartPos.y, (int)PlayerStartPos.x), Quaternion.identity);
+            p.PositionTileX = (int)PlayerStartPos.x;
+            p.PositionTileY = (int)PlayerStartPos.y;
         } else if(Player.ActivePlayer != null)
         {
             Player.ActivePlayer.MoveTo((int)PlayerStartPos.y, (int)PlayerStartPos.x);

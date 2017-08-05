@@ -37,7 +37,7 @@ public class Player : MonoBehaviour
             }
             _movementInProgress = value;
         }
-    }
+    }    
 
     struct MovementCommand
     {

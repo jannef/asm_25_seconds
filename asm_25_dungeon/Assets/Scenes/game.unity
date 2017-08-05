@@ -403,7 +403,7 @@ RectTransform:
   - {fileID: 964833978}
   - {fileID: 468721253}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -595,7 +595,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4928361784440548, guid: f20b3b5dbf5e0f64f81988ab8492cd36, type: 2}
       propertyPath: m_RootOrder
-      value: 4
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 198613939683857538, guid: f20b3b5dbf5e0f64f81988ab8492cd36,
         type: 2}
@@ -1071,6 +1071,7 @@ MonoBehaviour:
   - {fileID: 114342845127195120, guid: 29e37d0588bf77044b5e1587be0bc275, type: 2}
   Player: {fileID: 114175955268110518, guid: 2d6a9f698f8fdeb4b99eccf1978b77e6, type: 2}
   PlayerStartPos: {x: 0, y: 0}
+  LoadedLevel: 0
   maxX: 0
   maxY: 0
 --- !u!4 &1894199387
