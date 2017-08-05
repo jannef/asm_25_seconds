@@ -9,6 +9,12 @@ public class PlayerAttributes : CreatureAttributes {
     public static int Level = 1;
     public int XP = 0;
     public int XpToNextLevel = InitialXpToNext;
+    [Header("Balance")]
+    public int MaxLevel = 6;
+    public int[] XpVals =     {10,15,20,25,30,35};
+    public float[] HPVals =     {25,25,25,25,25,25};
+    public float[] ATKVals =    {1,2,3,4,5,6};
+
     [Header("UI")]
     public bool EnableUI = true;
     public Text LevelValue;
@@ -53,8 +59,14 @@ public class PlayerAttributes : CreatureAttributes {
         while(XP >= XpToNextLevel)
         {
             Level++;
+            if(Level > MaxLevel)
+            {
+                Level = MaxLevel;
+            }
             XP = XP - XpToNextLevel;
-            XpToNextLevel = Level * 5;
+            //XpToNextLevel = Level * 5;
+            XpToNextLevel = XpVals[Level-1];
+            Attack = ATKVals[Level-1];
             Debug.LogFormat("<color='teal'>Player leveled up to " + Level + "!</color>");
         }
     }
@@ -76,8 +88,10 @@ public class PlayerAttributes : CreatureAttributes {
     }
     public void ResetAttributes()
     {
+        Level = 1;
+        XpToNextLevel = XpVals[Level - 1];
+        Attack = ATKVals[Level - 1];
         XpToNextLevel = InitialXpToNext;
         XP = 0;
-        Level = 1;
     }
 }
