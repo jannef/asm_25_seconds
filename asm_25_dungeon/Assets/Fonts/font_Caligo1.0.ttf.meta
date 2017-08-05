@@ -1,0 +1,21 @@
+fileFormatVersion: 2
+guid: 42890eb7e0e00a1449e22c6618335e2d
+timeCreated: 1501924673
+licenseType: Free
+TrueTypeFontImporter:
+  serializedVersion: 4
+  fontSize: 64
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: Caligo
+  fontNames:
+  - Caligo
+  fallbackFontReferences: []
+  customCharacters: 
+  fontRenderingMode: 3
+  ascentCalculationMode: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

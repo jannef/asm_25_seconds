@@ -1,0 +1,21 @@
+fileFormatVersion: 2
+guid: a6068984eabf4f94d8bc5a4dabe1953a
+timeCreated: 1501924687
+licenseType: Free
+TrueTypeFontImporter:
+  serializedVersion: 4
+  fontSize: 32
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: Dominican Small Caps
+  fontNames:
+  - Dominican Small Caps
+  fallbackFontReferences: []
+  customCharacters: 
+  fontRenderingMode: 1
+  ascentCalculationMode: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
