@@ -54,7 +54,8 @@ public class MapManager : MonoBehaviour {
             // Cleanup
             if (_mapContainer != null)
             {
-                DestroyImmediate(_mapContainer);
+                GameObject newMapContainer = _mapContainer;
+                DestroyImmediate(newMapContainer);
             }
             _mapArray = null;
             _mapTiles = null;
@@ -222,6 +223,7 @@ public class MapManager : MonoBehaviour {
     }
     public Vector3 GetTileScenePosition(int x, int y)
     {
-        return new Vector3(y - maxY/2f + 0.5f, 0, maxX/2f - x);
+        Vector3 scenePos = new Vector3(y - maxY / 2f + 0.5f, 0, maxX / 2f - x);
+        return scenePos;
     }
 }

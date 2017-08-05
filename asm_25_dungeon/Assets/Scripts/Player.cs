@@ -47,6 +47,7 @@ public class Player : MonoBehaviour
     }
 
     private bool _movementInProgress;
+    private Coroutine _movementCoroutine;
 
     public static Player ActivePlayer;
     public int PositionTileY;
@@ -177,16 +178,27 @@ public class Player : MonoBehaviour
     public void MoveTo(int targetX, int targetY)
     {
         _movementInProgress = false;
+        if (_movementCoroutine != null)
+        {
+            StopCoroutine(_movementCoroutine);
+        }
         pooledCommand.lifetime = -1.0f;
         PositionTileX = targetY;
         PositionTileY = targetX;
-        transform.position = MapManager.Instance.GetTileScenePosition(PositionTileY, PositionTileX);
+        StartCoroutine(InstantMove(PositionTileX, PositionTileY));
+        //StartMovementAnimation(PositionTileY, PositionTileX, 1);
+    }
+
+    private IEnumerator InstantMove(int targetX, int targetY)
+    {
+        yield return new WaitForFixedUpdate();
+        transform.position = MapManager.Instance.GetTileScenePosition(targetY, targetX);
     }
 
     private void StartMovementAnimation(int targetY, int targetX, int distSqres)
     {
         var target = MapManager.Instance.GetTileScenePosition(targetY, targetX);
-        StartCoroutine(MovementAnimation(target, distSqres));
+        _movementCoroutine = StartCoroutine(MovementAnimation(target, distSqres));
     }
 
     private IEnumerator MovementAnimation(Vector3 targetPosition, int distanceInSquares)
@@ -199,7 +211,7 @@ public class Player : MonoBehaviour
             var stateTime = 0.0f;
             var duration = ((float)(distanceInSquares)) / AnimationSpeed;
 
-            while (stateTime < duration)
+            while (stateTime < duration && MovementInProgress)
             {
                 transform.position = Vector3.Lerp(originalPosition, targetPosition, MovementCurve.Evaluate(stateTime / duration));
                 stateTime += Time.deltaTime;

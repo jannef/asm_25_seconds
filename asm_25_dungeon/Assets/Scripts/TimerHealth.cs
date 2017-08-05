@@ -6,6 +6,7 @@ using UnityEngine;
 public class TimerHealth : MonoBehaviour {
     public float TimeLimit = 25.0f;
     public float TimeLeft = 25.0f;
+    public bool GODMODE = true;
     CreatureAttributes _attr;
 	// Use this for initialization
 	void Start () {
@@ -22,6 +23,7 @@ public class TimerHealth : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update () {
+        if (GODMODE){return;}
         //TimeLeft -= Time.deltaTime;
         //_attr.SetHealth(TimeLeft);
         _attr.TakeDamage(Time.deltaTime);
