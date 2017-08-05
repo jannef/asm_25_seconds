@@ -21,6 +21,7 @@ GameObject:
   - component: {fileID: 4560094416017562}
   - component: {fileID: 212588882725829582}
   - component: {fileID: 114566173052601328}
+  - component: {fileID: 114727476126601534}
   m_Layer: 0
   m_Name: key
   m_TagString: Untagged
@@ -52,6 +53,35 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 075411e80f3b3c949a293a45b0fa0a95, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  PickUpEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 114727476126601534}
+        m_MethodName: DropIt
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
+--- !u!114 &114727476126601534
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1621426254918368}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e59fa65117e138745b96d6516c34501c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  PrefabToSpawn: {fileID: 1799231102842242, guid: 527bb9d8c1bfa484ea479f7f775cd251,
+    type: 2}
 --- !u!212 &212588882725829582
 SpriteRenderer:
   m_ObjectHideFlags: 1

@@ -21,6 +21,7 @@ GameObject:
   - component: {fileID: 4072880286029870}
   - component: {fileID: 212998195570368466}
   - component: {fileID: 114629384271098960}
+  - component: {fileID: 114613298983873220}
   m_Layer: 0
   m_Name: potion
   m_TagString: Untagged
@@ -41,6 +42,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 90.00001, y: 0, z: 30.000002}
+--- !u!114 &114613298983873220
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1034203250041542}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e59fa65117e138745b96d6516c34501c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  PrefabToSpawn: {fileID: 1799231102842242, guid: 527bb9d8c1bfa484ea479f7f775cd251,
+    type: 2}
 --- !u!114 &114629384271098960
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -52,6 +66,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fceb85c7347dc3940adff730e777667a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  PickUpEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 114613298983873220}
+        m_MethodName: DropIt
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
 --- !u!212 &212998195570368466
 SpriteRenderer:
   m_ObjectHideFlags: 1

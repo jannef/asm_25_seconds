@@ -21,6 +21,7 @@ GameObject:
   - component: {fileID: 4675244150309044}
   - component: {fileID: 114547279876868064}
   - component: {fileID: 114495216229002884}
+  - component: {fileID: 114432241386608536}
   m_Layer: 2
   m_Name: TestEnemy
   m_TagString: Untagged
@@ -157,6 +158,19 @@ TextMesh:
   m_Color:
     serializedVersion: 2
     rgba: 4294967295
+--- !u!114 &114432241386608536
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1097459022864554}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e59fa65117e138745b96d6516c34501c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  PrefabToSpawn: {fileID: 1799231102842242, guid: 527bb9d8c1bfa484ea479f7f775cd251,
+    type: 2}
 --- !u!114 &114495216229002884
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -169,6 +183,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Attack: 1
+  OnDeathEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 114432241386608536}
+        m_MethodName: DropIt
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
   Health: 1
 --- !u!114 &114547279876868064
 MonoBehaviour:
