@@ -137,7 +137,7 @@ public class Player : MonoBehaviour
             int steps = 0;
             Tile targetTile;
             while (IsPassable(targetTile =
-                       MapManager.Instance.GetTileAt(targetTileY + directionY, targetTileX + directionX)) &&
+                       MapManager.Instance.GetTileAt(targetTileY + directionY, targetTileX + directionX), steps) &&
                    (steps < MoveLimit || MoveLimit < 0))
             {
                 targetTileY += directionY;
@@ -169,11 +169,10 @@ public class Player : MonoBehaviour
         pooledCommand.lifetime = -1.0f;
         PositionTileX = targetY;
         PositionTileY = targetX;
-        StartCoroutine(InstantMove(PositionTileX, PositionTileY));
-        //StartMovementAnimation(PositionTileY, PositionTileX, 1);
+        StartCoroutine(InstantMove(PositionTileX, PositionTileY, true));
     }
 
-    private IEnumerator InstantMove(int targetX, int targetY)
+    private IEnumerator InstantMove(int targetX, int targetY, bool waitForMove)
     {
         yield return new WaitForFixedUpdate();
         transform.position = MapManager.Instance.GetTileScenePosition(targetY, targetX);
@@ -208,9 +207,15 @@ public class Player : MonoBehaviour
     }
 
 
-    private bool IsPassable(Tile tile)
+    private bool IsPassable(Tile tile, int distanceSteps)
     {
         Tile.MovementEvent ev = CheckTileForEvent(tile);
+        /* Possible fast exit fix
+        if (ev == Tile.MovementEvent.Exit && MapManager.Instance.IsExitUnlocked())
+        {
+            return distanceSteps < 2;
+        }
+        */
         return tile != null && (ev == Tile.MovementEvent.Pass || ev == Tile.MovementEvent.Item || ev == Tile.MovementEvent.Enemy || ev == Tile.MovementEvent.Exit);
     }
     private Tile.MovementEvent CheckTileForEvent(Tile tile)

@@ -193,6 +193,11 @@ public class MapManager : MonoBehaviour {
         }
     }
 
+    public bool IsExitUnlocked()
+    {
+        return _exitUnlocked;
+    }
+
     internal void Exit()
     {
         if (_exitUnlocked)
