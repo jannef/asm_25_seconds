@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.UI;
 
 public class PlayerAttributes : CreatureAttributes {
@@ -21,6 +22,7 @@ public class PlayerAttributes : CreatureAttributes {
     public Text HPValue;
     public Text AtkValue;
     public Image XPBar;
+    public UnityEvent OnLevelUp;
 
     private void Start()
     {
@@ -67,6 +69,10 @@ public class PlayerAttributes : CreatureAttributes {
             //XpToNextLevel = Level * 5;
             XpToNextLevel = XpVals[Level-1];
             Attack = ATKVals[Level-1];
+            if (OnLevelUp != null)
+            {
+                OnLevelUp.Invoke();
+            }
             Debug.LogFormat("<color='teal'>Player leveled up to " + Level + "!</color>");
         }
     }

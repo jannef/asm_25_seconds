@@ -448,12 +448,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   CreditNames:
-  - Annakaise Kultima
+  - Annakaisa Kultima
   - Juho Korhonen
   - Teemu Kokkonen
   - DaeWoong Moon
   - Janne Forsell
-  - 'Heikki '
   TextField: {fileID: 595108138}
   LetterDelay: 0.1
   NameDelay: 1
@@ -489,7 +488,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: This is where the names go
+  m_Text: 
 --- !u!222 &595108139
 CanvasRenderer:
   m_ObjectHideFlags: 0

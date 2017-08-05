@@ -22,6 +22,7 @@ GameObject:
   - component: {fileID: 198271832499303032}
   - component: {fileID: 199872551665139912}
   - component: {fileID: 114630293264092380}
+  - component: {fileID: 82565947530728686}
   m_Layer: 8
   m_Name: GameObject
   m_TagString: Untagged
@@ -40,7 +41,6 @@ GameObject:
   - component: {fileID: 20956139025199424}
   - component: {fileID: 124639849886211228}
   - component: {fileID: 92387862393038062}
-  - component: {fileID: 81227690565841200}
   m_Layer: 0
   m_Name: Camera
   m_TagString: Untagged
@@ -97,7 +97,6 @@ GameObject:
   - component: {fileID: 20418669369734572}
   - component: {fileID: 124029868563724870}
   - component: {fileID: 92244666561874216}
-  - component: {fileID: 81443852204465876}
   m_Layer: 0
   m_Name: UICam
   m_TagString: Untagged
@@ -335,13 +334,6 @@ MeshCollider:
   m_InflateMesh: 0
   m_SkinWidth: 0.01
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
---- !u!81 &81227690565841200
-AudioListener:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1250646224884562}
-  m_Enabled: 1
 --- !u!81 &81270029257831050
 AudioListener:
   m_ObjectHideFlags: 1
@@ -349,13 +341,86 @@ AudioListener:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1393718108176184}
   m_Enabled: 1
---- !u!81 &81443852204465876
-AudioListener:
+--- !u!82 &82565947530728686
+AudioSource:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1839696420298804}
+  m_GameObject: {fileID: 1159213843747410}
   m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 7aecce8b0076e3e438ab9e0616cfc2ea, type: 3}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - serializedVersion: 2
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
 --- !u!92 &92089987592993270
 Behaviour:
   m_ObjectHideFlags: 1
@@ -389,6 +454,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _particles: {fileID: 198271832499303032}
+  OnLevelChange:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 82565947530728686}
+        m_MethodName: PlayOneShot
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
 --- !u!114 &114957165435981884
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -481,7 +562,7 @@ ParticleSystem:
   moveWithTransform: 0
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: 1804488086
+  randomSeed: -190305846
   InitialModule:
     serializedVersion: 3
     enabled: 1
