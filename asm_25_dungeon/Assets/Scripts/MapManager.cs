@@ -48,6 +48,12 @@ public class MapManager : MonoBehaviour {
     }
     public void LoadLevel(int index)
     {
+        var effect = FindObjectOfType<LevelChangeEffect>();
+        if (effect != null)
+        {
+            effect.PlayLevelChange();
+        }
+
         if (index < Maps.Array.Length)
         {
             // Cleanup
