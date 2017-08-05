@@ -25,20 +25,20 @@ xo****
 x**o**
 x****x",
 
-@"oixox#
-***x*x
-*o**oo
-@*****
-o***o*
-**o***
-*ix$**
-x****x",
+@"o**xx#
+ix*x*x
+*o*xoo
+***xo*
+@**x**
+o*****
+**o$**
+x**x*x",
 
 @"@xxxxx
 xxxxxx
+xxxxxo
 xxxxxx
+oxxxxx
 xxxxxx
-xxxxxx
-xxxxxx
-xxxxxx
+xxxxxo
 $xxxx#"
