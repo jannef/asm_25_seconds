@@ -5,10 +5,9 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class PlayerAttributes : CreatureAttributes {
-    const int InitialXpToNext = 10;
     public static int Level = 1;
     public int XP = 0;
-    public int XpToNextLevel = InitialXpToNext;
+    public int XpToNextLevel;
     [Header("Balance")]
     public int MaxLevel = 6;
     public int[] XpVals =     {10,15,20,25,30,35};
@@ -73,7 +72,7 @@ public class PlayerAttributes : CreatureAttributes {
 
     public float GetPlayerAttack()
     {
-        return ATKVals[Level - 1];
+        return ATKVals[Level-1];
     }
 
     private void Update()
@@ -91,7 +90,6 @@ public class PlayerAttributes : CreatureAttributes {
         Level = 1;
         XpToNextLevel = XpVals[Level - 1];
         Attack = ATKVals[Level - 1];
-        XpToNextLevel = InitialXpToNext;
         XP = 0;
     }
 }

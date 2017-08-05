@@ -12,4 +12,8 @@ public class ButtonScripts : MonoBehaviour {
     {
         SceneManager.LoadScene(0);
     }
+    public void OpenFeedback()
+    {
+        Application.OpenURL("https://goo.gl/forms/fw9f0rKWmRZiKt0s1");
+    }
 }
