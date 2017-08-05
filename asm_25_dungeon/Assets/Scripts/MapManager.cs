@@ -28,7 +28,6 @@ public class MapManager : MonoBehaviour {
     bool _exitUnlocked;
     char[][] _mapArray;
     Tile[][] _mapTiles;
-    Vector3 _tileScaleVector = new Vector3();
 
     GameObject _closedGate;
     GameObject _openGate;

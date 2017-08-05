@@ -23,18 +23,19 @@ public class Enemy : MonoBehaviour {
         GetAttr();
         _enemyInfo = GetComponentInChildren<TextMesh>();
         _uiEnabled = _enemyInfo != null;
-        EnemyLevel = PlayerAttributes.Level;
     }
     // Use this for initialization
     void Start ()
     {
-        GetAttr().SetHealth(1+((EnemyLevel-1)*2-1));
+        EnemyLevel = MapManager.Instance.LoadedLevel;
+        float startHp = 1;//1 + (EnemyLevel - EnemyLevel % 2);
+        GetAttr().SetHealth(startHp);
 
     }
 	
     public float GetAttackPower()
     {
-        return GetAttr().Attack+EnemyLevel;
+        return 1; //GetAttr().Attack+EnemyLevel;
     }
 
     public bool TakeDamage(float AttackPower)

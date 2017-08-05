@@ -9,6 +9,7 @@ TagManager:
   - atk_value
   - gate_open
   - gate_closed
+  - xp_bar
   layers:
   - Default
   - TransparentFX

@@ -9,12 +9,7 @@ public class CreatureAttributes : MonoBehaviour {
     [SerializeField]
     protected float Health = 1.0f;
     protected bool dying = false;
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
+
 	void Update ()
     {
         if (Health <= 0)

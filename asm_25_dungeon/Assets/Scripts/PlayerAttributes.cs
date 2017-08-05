@@ -5,17 +5,20 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class PlayerAttributes : CreatureAttributes {
+    const int InitialXpToNext = 10;
     public static int Level = 1;
     public int XP = 0;
-    public int XpToNextLevel = 10;
+    public int XpToNextLevel = InitialXpToNext;
     [Header("UI")]
     public bool EnableUI = true;
     public Text LevelValue;
     public Text HPValue;
     public Text AtkValue;
+    public Image XPBar;
 
     private void Start()
     {
+        ResetAttributes();
         if (EnableUI)
         {
             GameObject lvl_obj = GameObject.FindWithTag("lvl_value");
@@ -35,6 +38,11 @@ public class PlayerAttributes : CreatureAttributes {
             if (atk_obj != null)
             {
                 AtkValue = atk_obj.GetComponent<Text>();
+            }
+            GameObject xpbar_obj = GameObject.FindWithTag("xp_bar");
+            if (xpbar_obj != null)
+            {
+                XPBar = xpbar_obj.GetComponent<Image>();
             }
         }
     }
@@ -63,6 +71,13 @@ public class PlayerAttributes : CreatureAttributes {
             LevelValue.text = Level.ToString();
             HPValue.text = Health.ToString("#.0");
             AtkValue.text = GetPlayerAttack().ToString();
+            XPBar.fillAmount = (float)XP / XpToNextLevel;
         }
+    }
+    public void ResetAttributes()
+    {
+        XpToNextLevel = InitialXpToNext;
+        XP = 0;
+        Level = 1;
     }
 }

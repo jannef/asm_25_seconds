@@ -216,7 +216,7 @@ public class Player : MonoBehaviour
     private bool IsPassable(Tile tile)
     {
         Tile.MovementEvent ev = CheckTileForEvent(tile);
-        return tile != null && (ev == Tile.MovementEvent.Pass || ev == Tile.MovementEvent.Item || ev == Tile.MovementEvent.Enemy);
+        return tile != null && (ev == Tile.MovementEvent.Pass || ev == Tile.MovementEvent.Item || ev == Tile.MovementEvent.Enemy || ev == Tile.MovementEvent.Exit);
     }
     private Tile.MovementEvent CheckTileForEvent(Tile tile)
     {
