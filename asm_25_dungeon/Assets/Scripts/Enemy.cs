@@ -5,7 +5,8 @@ using UnityEngine;
 [RequireComponent(typeof(CreatureAttributes))]
 public class Enemy : MonoBehaviour {
     public int EnemyLevel = 1;
-    public int XpYield = 5;
+    public int XpYield = 1;
+    float[] _hpValues = { 1, 1, 1, 2, 2, 2, 3, 3, 3, 4, 4 };
     CreatureAttributes _attr;
     CreatureAttributes GetAttr()
     {
@@ -28,7 +29,11 @@ public class Enemy : MonoBehaviour {
     void Start ()
     {
         EnemyLevel = MapManager.Instance.LoadedLevel;
-        float startHp = 1;//1 + (EnemyLevel - EnemyLevel % 2);
+        if(EnemyLevel >= _hpValues.Length)
+        {
+            EnemyLevel = _hpValues.Length-1;
+        }
+        float startHp = _hpValues[EnemyLevel];
         GetAttr().SetHealth(startHp);
 
     }
