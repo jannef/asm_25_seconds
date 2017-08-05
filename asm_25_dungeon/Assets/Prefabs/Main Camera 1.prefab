@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: 4328175381393602}
   - component: {fileID: 198900389395067486}
   - component: {fileID: 199472503829402342}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: menu particles
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -57,7 +57,7 @@ GameObject:
   - component: {fileID: 4043656682700808}
   - component: {fileID: 198734828513189830}
   - component: {fileID: 199456548615336102}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: sub_emitter
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -90,7 +90,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4276007336797210}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: GameObject
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -226,7 +226,7 @@ Camera:
   m_Depth: 0
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 4294967039
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0
@@ -2974,7 +2974,7 @@ ParticleSystem:
     widthOverTrail:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 0.25
+      scalar: 0.12
       minScalar: 1
       maxCurve:
         serializedVersion: 2
@@ -3594,7 +3594,7 @@ ParticleSystem:
   moveWithTransform: 0
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: -676987573
+  randomSeed: -787786641
   InitialModule:
     serializedVersion: 3
     enabled: 1

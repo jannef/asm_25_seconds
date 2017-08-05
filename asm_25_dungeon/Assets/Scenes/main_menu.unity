@@ -521,21 +521,6 @@ Prefab:
       propertyPath: m_Name
       value: Main Camera
       objectReference: {fileID: 0}
-    - target: {fileID: 198734828513189830, guid: a30300f4ca4b9644192d5f135f96a0f8,
-        type: 2}
-      propertyPath: TrailModule.ratio
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 198734828513189830, guid: a30300f4ca4b9644192d5f135f96a0f8,
-        type: 2}
-      propertyPath: randomSeed
-      value: -698843856
-      objectReference: {fileID: 0}
-    - target: {fileID: 198734828513189830, guid: a30300f4ca4b9644192d5f135f96a0f8,
-        type: 2}
-      propertyPath: TrailModule.widthOverTrail.scalar
-      value: 0.12
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: a30300f4ca4b9644192d5f135f96a0f8, type: 2}
   m_IsPrefabParent: 0
