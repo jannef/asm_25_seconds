@@ -24,7 +24,7 @@ GameObject:
   - component: {fileID: 23011059855672546}
   m_Layer: 0
   m_Name: GoalOpen
-  m_TagString: Untagged
+  m_TagString: gate_open
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -58,7 +58,7 @@ GameObject:
   - component: {fileID: 23115459900475070}
   m_Layer: 0
   m_Name: GoalLocked
-  m_TagString: Untagged
+  m_TagString: gate_closed
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -223,4 +223,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Key: 35
   EnemyOnTile: {fileID: 0}
+  ItemOnTile: {fileID: 0}
   _moveEvent: 5

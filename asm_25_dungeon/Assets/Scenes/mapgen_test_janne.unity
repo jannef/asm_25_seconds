@@ -215,7 +215,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -280, y: -538}
+  m_AnchoredPosition: {x: -150, y: -524}
   m_SizeDelta: {x: 150, y: 150}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &468721254
@@ -443,7 +443,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 36, y: -512}
+  m_AnchoredPosition: {x: 44, y: -524}
   m_SizeDelta: {x: 150, y: 254.6875}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &757524025
@@ -558,6 +558,53 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
+--- !u!1001 &761698927
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4928361784440548, guid: f20b3b5dbf5e0f64f81988ab8492cd36, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4928361784440548, guid: f20b3b5dbf5e0f64f81988ab8492cd36, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4928361784440548, guid: f20b3b5dbf5e0f64f81988ab8492cd36, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4928361784440548, guid: f20b3b5dbf5e0f64f81988ab8492cd36, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4928361784440548, guid: f20b3b5dbf5e0f64f81988ab8492cd36, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4928361784440548, guid: f20b3b5dbf5e0f64f81988ab8492cd36, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4928361784440548, guid: f20b3b5dbf5e0f64f81988ab8492cd36, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4928361784440548, guid: f20b3b5dbf5e0f64f81988ab8492cd36, type: 2}
+      propertyPath: m_RootOrder
+      value: 5
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: f20b3b5dbf5e0f64f81988ab8492cd36, type: 2}
+  m_IsPrefabParent: 0
+--- !u!198 &832470329 stripped
+ParticleSystem:
+  m_PrefabParentObject: {fileID: 198613939683857538, guid: f20b3b5dbf5e0f64f81988ab8492cd36,
+    type: 2}
+  m_PrefabInternal: {fileID: 761698927}
 --- !u!1 &863428508
 GameObject:
   m_ObjectHideFlags: 0
@@ -612,7 +659,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: 52b373e9fb60f434c80acc00bff1f9f6, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 19dd978bc72f3da488da3298d43923a9, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -659,7 +706,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 312, y: -524}
+  m_AnchoredPosition: {x: 223, y: -524}
   m_SizeDelta: {x: 150, y: 150}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &964833979
@@ -902,8 +949,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7804d0ed08fea6148b2cbcf5059c236e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _touchParticles: {fileID: 180153857}
-  _text: {fileID: 351886640}
+  _touchParticles: {fileID: 832470329}
 --- !u!23 &1805870426
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -984,19 +1030,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ad24c0ddd0ae764790362ada79af8c2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MapInput: '***#*
-
-    **oo*
-
-    *o$**
-
-    **ox*
-
-    **x*o
-
-    o****
-
-    **I**'
+  MapInput: "****i\r\n****o\r\n*o***\r\n@o#**\r\n*ooo*\r\n*****\r\n**$**"
   TileDefinitions:
   - {fileID: 114835244538289700, guid: 06d27619b05168643b97ff3b667e0163, type: 2}
   - {fileID: 114819160996756768, guid: 39f3d6a288e425d43a6299908a8c0089, type: 2}
@@ -1004,7 +1038,9 @@ MonoBehaviour:
   - {fileID: 114835244538289700, guid: 82ba9e91c34a6624c9948da23555748a, type: 2}
   - {fileID: 114835244538289700, guid: ae85fa93d1e6bc84e8a32f8308e6828c, type: 2}
   - {fileID: 114747405535360098, guid: 4b73c826a11a5e246aeacb155fa3c816, type: 2}
+  - {fileID: 114342845127195120, guid: 29e37d0588bf77044b5e1587be0bc275, type: 2}
   Player: {fileID: 114175955268110518, guid: 2d6a9f698f8fdeb4b99eccf1978b77e6, type: 2}
+  PlayerStartPos: {x: 0, y: 0}
   maxX: 0
   maxY: 0
 --- !u!4 &1894199387

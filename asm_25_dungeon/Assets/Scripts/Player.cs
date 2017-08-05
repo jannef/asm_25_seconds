@@ -174,6 +174,15 @@ public class Player : MonoBehaviour
         }
     }
 
+    public void MoveTo(int targetX, int targetY)
+    {
+        _movementInProgress = false;
+        pooledCommand.lifetime = -1.0f;
+        PositionTileX = targetY;
+        PositionTileY = targetX;
+        transform.position = MapManager.Instance.GetTileScenePosition(PositionTileY, PositionTileX);
+    }
+
     private void StartMovementAnimation(int targetY, int targetX, int distSqres)
     {
         var target = MapManager.Instance.GetTileScenePosition(targetY, targetX);
@@ -233,5 +242,9 @@ public class Player : MonoBehaviour
         _attr.TakeDamage(dmg);
         tileEnemy.EnemyOnTile.TakeDamage(_attr.Attack);
         Debug.LogFormat("<color='red'>ENEMY ATTACKED</color>");
+    }
+    void OnDeath()
+    {
+        UnityEngine.SceneManagement.SceneManager.LoadScene(2);
     }
 }

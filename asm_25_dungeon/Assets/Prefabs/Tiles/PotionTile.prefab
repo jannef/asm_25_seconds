@@ -136,7 +136,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 79c9396cdf628f044b37807c91637999, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Key: 73
+  Key: 105
   EnemyOnTile: {fileID: 0}
   ItemOnTile: {fileID: 114629384271098960, guid: b23fd1da81aee9e448574e98622f6be9,
     type: 2}

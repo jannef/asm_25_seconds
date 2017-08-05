@@ -5,15 +5,12 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 0
+  - enabled: 1
+    path: Assets/Scenes/main_menu.unity
+    guid: 36ab367a448980a42b466e97fd896da0
+  - enabled: 1
     path: Assets/Scenes/mapgen_test_janne.unity
     guid: 0937c7ec8fb14cd49b55fb01a447bb10
-  - enabled: 0
-    path: 
-    guid: 5ced9b39b17fe5642bb628637c883d8b
-  - enabled: 0
-    path: Assets/staging scene.unity
-    guid: ca1eb226a5f447842b0d3a58be860ba2
   - enabled: 1
-    path: Assets/Scenes/mapgen_test_janne2.unity
-    guid: 7e2dc86d879bad14490c47944b183ff8
+    path: Assets/Scenes/game_over.unity
+    guid: 316c1d8cbe81626468ab2d4b4d0b5778
