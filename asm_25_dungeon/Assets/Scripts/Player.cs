@@ -22,17 +22,12 @@ public class Player : MonoBehaviour
 
         private set
         {
-            Debug.Log(string.Format("Lock set! {0} -> {1}", _movementInProgress, value));
             if (OnMovementStarted != null && _movementInProgress && !value)
             {
-                Debug.Log("Completed triggered next");
-                // falling edge for the lock
                 OnMovementCompleted.Invoke();
             }
             else if (OnMovementStarted != null && !_movementInProgress && value)
             {
-                Debug.Log("Started triggered next");
-                // rising edge of the lock
                 OnMovementStarted.Invoke();
             }
             _movementInProgress = value;

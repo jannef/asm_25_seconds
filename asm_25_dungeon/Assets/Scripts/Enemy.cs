@@ -56,6 +56,13 @@ public class Enemy : MonoBehaviour {
 
     void OnDeath()
     {
+        var player = FindObjectOfType<SoundPlayer>();
+        if (player != null)
+        {
+            Debug.Log("Called sound!!");
+            player.Source.PlayOneShot(player.EnemyDies);
+        }
+
         Player.ActivePlayer.GainXP(XpYield);
         Destroy(gameObject);
     }
