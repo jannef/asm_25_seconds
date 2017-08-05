@@ -75,7 +75,6 @@ GameObject:
   - component: {fileID: 20003792804295528}
   - component: {fileID: 124287641787298444}
   - component: {fileID: 92698188199316206}
-  - component: {fileID: 81162519287367714}
   m_Layer: 0
   m_Name: particle camera
   m_TagString: Untagged
@@ -239,13 +238,6 @@ Camera:
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
   m_StereoMirrorMode: 0
---- !u!81 &81162519287367714
-AudioListener:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1634166880479798}
-  m_Enabled: 1
 --- !u!81 &81683894815238510
 AudioListener:
   m_ObjectHideFlags: 1
