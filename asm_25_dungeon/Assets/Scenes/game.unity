@@ -337,7 +337,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 7a42825b467583143a5ba9086cb05d99, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.7
+  m_Volume: 0.9
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -1156,8 +1156,9 @@ GameObject:
   - component: {fileID: 1874054333}
   - component: {fileID: 1874054335}
   - component: {fileID: 1874054334}
+  - component: {fileID: 1874054336}
   m_Layer: 5
-  m_Name: Text
+  m_Name: SwipeText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1179,7 +1180,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 250.76, y: 420.67}
+  m_SizeDelta: {x: 312.83, y: 420.67}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1874054334
 MonoBehaviour:
@@ -1202,11 +1203,11 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
     m_Font: {fileID: 12800000, guid: 1a60c113133781849a7f2ed833303f4e, type: 3}
-    m_FontSize: 96
+    m_FontSize: 128
     m_FontStyle: 0
     m_BestFit: 0
-    m_MinSize: 7
-    m_MaxSize: 96
+    m_MinSize: 1
+    m_MaxSize: 128
     m_Alignment: 4
     m_AlignByGeometry: 0
     m_RichText: 1
@@ -1220,6 +1221,19 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1874054332}
+--- !u!114 &1874054336
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1874054332}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1ddd90ecd76a0a14082f6e74e43c6091, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Delay: 2
+  FadeDuration: 1
 --- !u!1 &1894199385
 GameObject:
   m_ObjectHideFlags: 0

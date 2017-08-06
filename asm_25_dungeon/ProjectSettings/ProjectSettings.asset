@@ -219,8 +219,8 @@ PlayerSettings:
   AndroidTargetDevice: 0
   AndroidSplashScreenScale: 0
   androidSplashScreen: {fileID: 2800000, guid: d52b6ad7b2931084c97802341f58dad4, type: 3}
-  AndroidKeystoreName: 
-  AndroidKeyaliasName: 
+  AndroidKeystoreName: C:/Users/teme9/Documents/Projects/asm_25_seconds/25sd.keystore
+  AndroidKeyaliasName: 25seconddungeon
   AndroidTVCompatibility: 0
   AndroidIsGame: 1
   androidEnableBanner: 1
